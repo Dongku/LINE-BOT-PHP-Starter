@@ -4,7 +4,7 @@ $url = 'https://api.pushbullet.com/v2/pushes';
 $access_token = 'o.em63fJtsdieIDm46GxFJBasM6udgSvzT';
 $headers = array('Content-Type: application/json', 'Access-Token:'. $access_token);
 
-data-binary "{\"type\": \"note\", \"title\":\"Note Title\", \"body\": \"Note Body\"}"
+//data-binary "{\"type\": \"note\", \"title\":\"Note Title\", \"body\": \"Note Body\"}"
 $arrPostData = array();
 $arrPostData['type'] = "note";
 $arrPostData['title'] = "Note Title";
