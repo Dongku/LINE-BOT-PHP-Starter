@@ -7,41 +7,43 @@ $access_token = 'g4wgtByEcy99M5Zx8bw4fIJJtqi0b/Nwq1mcI4HPXVK2SrFrrMfz/J4gF44eOeN
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
  
-$strUrl = "https://api.line.me/v2/bot/message/reply";
+$strUrl = 'https://api.line.me/v2/bot/message/reply';
+
+
+$arrheader = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+//$arrHeader = array();
+//$arrHeader[] = 'Content-Type: application/json';
+//$arrHeader[] = 'Authorization: Bearer' .$strAccessToken;
  
-$arrHeader = array();
-$arrHeader[] = 'Content-Type: application/json';
-$arrHeader[] = 'Authorization: Bearer' .$strAccessToken;
- 
-if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
+if($arrJson['events'][0]['message']['text'] == 'สวัสดี'){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+  $arrPostData['messages'][0]['type'] = 'text';
+  $arrPostData['messages'][0]['text'] = 'สวัสดี ID คุณคือ '.$arrJson['events'][0]['source']['userId'];
   
-}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไรอะเรา"){
+}else if($arrJson['events'][0]['message']['text'] == 'ชื่ออะไรอะเรา'){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "Dongku Bot จ้า";
+  $arrPostData['messages'][0]['type'] = 'text';
+  $arrPostData['messages'][0]['text'] = 'Dongku Bot จ้า';
   
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
+}else if($arrJson['events'][0]['message']['text'] == 'ทำอะไรได้บ้าง'){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+  $arrPostData['messages'][0]['type'] = 'text';
+  $arrPostData['messages'][0]['text'] = 'ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ';
   
-}else if($arrJson['events'][0]['message']['text'] == "ขอหุ้นหน่อย"){
+}else if($arrJson['events'][0]['message']['text'] == 'ขอหุ้นหน่อย'){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ไม่มี หาเองเองสิ";
+  $arrPostData['messages'][0]['type'] = 'text';
+  $arrPostData['messages'][0]['text'] = 'ไม่มี หาเองเองสิ';
   
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "พูดอะไร ฉันไม่เข้าใจคำสั่ง";
+  $arrPostData['messages'][0]['type'] = 'text';
+  $arrPostData['messages'][0]['text'] = 'พูดอะไร ฉันไม่เข้าใจคำสั่ง';
 }
  
 $ch = curl_init();
