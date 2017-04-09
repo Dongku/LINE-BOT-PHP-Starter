@@ -11,7 +11,7 @@ $arrPostData['title'] = "Note Title";
 $arrPostData['body'] = "นี้คือการทดสอบ Push Message";
 
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
