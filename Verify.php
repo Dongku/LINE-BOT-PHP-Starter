@@ -1,5 +1,5 @@
 <?php
-$proxy = '54.173.229.200:24';
+$proxy = 'http://fixie:dktIJfZt6pqxvZ1@velodrome.usefixie.com:80';
 $proxyauth = 'dong_t49@hotmail.com:Kikko664629';
 
 $access_token = 'g4wgtByEcy99M5Zx8bw4fIJJtqi0b/Nwq1mcI4HPXVK2SrFrrMfz/J4gF44eOeNozHuCPQjkuDB8dfk58vFh9bRlk252NZmcNh5n6VPVnT5o8HXIFb9e2H++oIm3t+Bn90HESDRCM4smmZhrd7pppwdB04t89/1O/w1cDnyilFU=';
