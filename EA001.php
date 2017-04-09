@@ -7,7 +7,8 @@ $url = 'https://api.pushbullet.com/v2/pushes';
 
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$access_token}";
+//$arrHeader[] = "Authorization: Bearer {$access_token}";
+$arrHeader[] = "Access-Token: {$access_token}";
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
