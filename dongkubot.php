@@ -2,49 +2,39 @@
 
 $proxy = 'http://fixie:dktIJfZt6pqxvZ1@velodrome.usefixie.com:80';
 $proxyauth = 'dong_t49@hotmail.com:Kikko664629';
-$access_token = 'g4wgtByEcy99M5Zx8bw4fIJJtqi0b/Nwq1mcI4HPXVK2SrFrrMfz/J4gF44eOeNozHuCPQjkuDB8dfk58vFh9bRlk252NZmcNh5n6VPVnT5o8HXIFb9e2H++oIm3t+Bn90HESDRCM4smmZhrd7pppwdB04t89/1O/w1cDnyilFU=';
-
+$strAccessToken = "g4wgtByEcy99M5Zx8bw4fIJJtqi0b/Nwq1mcI4HPXVK2SrFrrMfz/J4gF44eOeNozHuCPQjkuDB8dfk58vFh9bRlk252NZmcNh5n6VPVnT5o8HXIFb9e2H++oIm3t+Bn90HESDRCM4smmZhrd7pppwdB04t89/1O/w1cDnyilFU=";
+ 
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
  
-$strUrl = 'https://api.line.me/v2/bot/message/reply';
-
-
-$arrheader = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-//$arrHeader = array();
-//$arrHeader[] = 'Content-Type: application/json';
-//$arrHeader[] = 'Authorization: Bearer' .$strAccessToken;
+$strUrl = "https://api.line.me/v2/bot/message/reply";
  
-if($arrJson['events'][0]['message']['text'] == 'สวัสดี'){
+$arrHeader = array();
+$arrHeader[] = "Content-Type: application/json";
+$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
+ 
+if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = 'text';
-  $arrPostData['messages'][0]['text'] = 'สวัสดี ID คุณคือ '.$arrJson['events'][0]['source']['userId'];
-  
-}else if($arrJson['events'][0]['message']['text'] == 'ชื่ออะไรอะเรา'){
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = 'text';
-  $arrPostData['messages'][0]['text'] = 'Dongku Bot จ้า';
-  
-}else if($arrJson['events'][0]['message']['text'] == 'ทำอะไรได้บ้าง'){
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
+}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = 'text';
-  $arrPostData['messages'][0]['text'] = 'ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ';
-  
-}else if($arrJson['events'][0]['message']['text'] == 'ขอหุ้นหน่อย'){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = 'text';
-  $arrPostData['messages'][0]['text'] = 'ไม่มี หาเองเองสิ';
-  
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = 'text';
-  $arrPostData['messages'][0]['text'] = 'พูดอะไร ฉันไม่เข้าใจคำสั่ง';
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
 }
+ 
  
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -58,6 +48,5 @@ curl_setopt($ch, CURLOPT_PROXY, $proxy);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
 $result = curl_exec($ch);
 curl_close ($ch);
-
-echo "BOT OK";
+ 
 ?>
