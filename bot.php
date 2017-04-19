@@ -21,10 +21,10 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			//$text = "Hello World!";
 			if (stripos($text, "@") !== false) {
+			$text1 = str_replace("@", "", $text);
 			$messages = [
-				 $text = str_replace("@", "", $text);
 				'type' => 'text',
-				'text' => 'http://siamchart.com/stock-chart/'.$text
+				'text' => 'http://siamchart.com/stock-chart/'.$text1
 			];
     			echo "True";
 			}
