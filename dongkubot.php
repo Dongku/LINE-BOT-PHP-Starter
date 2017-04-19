@@ -19,13 +19,13 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
 }
-else{
+else if{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "งง เด้ๆๆ..";
 }
- 
+else{
 
 // Get POST body content
 // Validate parsed JSON data
@@ -66,7 +66,9 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+echo "Get Message OK";
+	
+}
 
  
 $ch = curl_init();
@@ -81,5 +83,6 @@ curl_setopt($ch, CURLOPT_PROXY, $proxy);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
 $result = curl_exec($ch);
 curl_close ($ch);
- 
+
+
 ?>
