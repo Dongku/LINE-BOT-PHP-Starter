@@ -22,6 +22,7 @@ if (!is_null($events['events'])) {
 			//$text = "Hello World!";
 			if (stripos($text, "@") !== false) {
 			$messages = [
+				 str_replace("@", "", $text);
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text
 			];
