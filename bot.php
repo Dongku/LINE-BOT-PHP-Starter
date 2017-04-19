@@ -17,12 +17,22 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			
 			// Build message to reply back
+			//$text = "Hello World!";
+			if ($text contains "@") {
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text
 			];
+    			echo "True";
+			}
+			else if {
+			$messages = [
+				'type' => 'text',
+				'text' => 'ไปหาเองไป๊..'
+			];
+			}
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
