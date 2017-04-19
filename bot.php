@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 			
 			// Build message to reply back
 			//$text = "Hello World!";
-			if ($text contains "@") {
+			if (stripos($text, "@") !== false) {
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text
