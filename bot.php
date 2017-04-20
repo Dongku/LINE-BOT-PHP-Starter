@@ -31,7 +31,7 @@ if (!is_null($events['events'])) {
 			else if (stripos($text, "สวัสดี") !== false) {
 			$messages = [
 				'type' => 'text',
-				'text' => "สวัสดี ID คุณคือ ".$arrJson['events']['source']['userId']
+				'text' => 'สวัสดี ID คุณคือ' .$arrJson['events']['source']['userId']
 			];
     			echo "True";
 			}
