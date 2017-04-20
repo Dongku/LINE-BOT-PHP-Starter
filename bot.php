@@ -28,17 +28,10 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
-			else if (stripos($text, "สวัสดี") !== false) {
-			$messages = [
-				'type' => 'text',
-				'text' => 'สวัสดี ID คุณคือ' .$arrJson['events']['source']['userId']
-			];
-    			echo "True";
-			}
 			else {
 			$messages = [
 				'type' => 'text',
-				'text' => 'ไปหาเองไป๊..'
+				'text' => 'ไปหาเองไป๊..'.$arrJson['events']['source']['userId']
 			];
 			}
 			// Make a POST Request to Messaging API to reply to sender
