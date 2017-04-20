@@ -29,9 +29,10 @@ if (!is_null($events['events'])) {
     			echo "True";
 			}
 			else {
+			$text2 = $arrJson['events']['source']['userId'];
 			$messages = [
 				'type' => 'text',
-				'text' => 'ไปหาเองไป๊..'.$arrJson['events']['source']['userId']
+				'text' => 'ไปหาเองไป๊..'.$text2
 			];
 			}
 			// Make a POST Request to Messaging API to reply to sender
