@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
     			echo "True";
 			}
 			else {
-			$text2 = $events['source']['userId'];
+			$text2 = $event['source']['userId'];
 			$messages = [
 				'type' => 'text',
 				'text' => 'ไปหาเองไป๊..'.$text2
