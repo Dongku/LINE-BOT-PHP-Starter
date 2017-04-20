@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
 			//$text2 = $arrJson['events']['source']['userId'];
 			$messages = [
 				'type' => 'text',
-				'text' => 'ไปหาเองไป๊..'.$text2
+				'text' => 'ไปหาเองไป๊..'
 			];
 			}
 			// Make a POST Request to Messaging API to reply to sender
