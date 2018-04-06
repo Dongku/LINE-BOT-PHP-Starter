@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
     			echo "True";
 			}
 			else if (stripos($text, "group") !== false) {
-			$text3 = $event['source']['roomId'];
+			$text3 = $event['source']['groupId'];
 			$messages = [
 				'type' => 'text',
 				'text' => 'GROUP ID='.$text3
