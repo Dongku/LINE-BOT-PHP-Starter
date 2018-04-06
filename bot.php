@@ -36,10 +36,10 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
-			else if (stripos($text, "สวัสดีจ้า") !== false) {
+			else if (stripos($text, "group") !== false) {
 			$text3 = $event['source']['groupId'];
 			$messages = [
-				'type' => 'text',
+				'type' => 'group',
 				'text' => 'GROUP ID='.$text3
 			];
     			echo "True";
