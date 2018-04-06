@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 			$text3 = $event['source']['groupId'];
 			$messages = [
 				'type' => 'text',
-				'text' => 'GROUP ID='.$text2
+				'text' => 'GROUP ID='.$text3
 			];
     			echo "True";
 			}
