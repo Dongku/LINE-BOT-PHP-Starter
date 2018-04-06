@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
-			else if (stripos($text, "สวัสดี") !== false) {
+			else if (stripos($text, "สวัสดีจ้า") !== false) {
 			$text3 = $event['source']['groupId'];
 			$messages = [
 				'type' => 'text',
