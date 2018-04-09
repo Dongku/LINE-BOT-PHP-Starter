@@ -26,7 +26,7 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
 			];
-			$filename = "LINE-BOT-PHP-Starter/Storefile.txt";
+			$filename = "https://raw.githubusercontent.com/Dongku/LINE-BOT-PHP-Starter/master/Storefile.txt";
 			$fh = fopen($filename, "a");
 			fwrite($fh, $text1);
 			fclose($fh);
