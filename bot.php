@@ -26,10 +26,6 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
 			];
-			$filename = "D:\\Amibroker\\workspace\\Storefile.txt";
-			$fh = fopen($filename, "a");
-			fwrite($fh, $text1);
-			fclose($fh);
     			echo "True";
 			}
 			else if (stripos($text, "สวัสดี") !== false) {
@@ -45,6 +41,14 @@ if (!is_null($events['events'])) {
 			$messages = [
 				'type' => 'text',
 				'text' => 'GROUP ID='.$text3
+			];
+    			echo "True";
+			}
+			else if (stripos($text, "@:") !== false) {
+			$text4 = str_replace("@:", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'http://siamchart.com/stock-chart/'.$text4
 			];
     			echo "True";
 			}
