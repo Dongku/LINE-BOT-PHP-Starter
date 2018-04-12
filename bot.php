@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 			$text3 = str_replace("#", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'http://kdservices.net/'.$text3.'png'
+				'text' => 'http://kdservices.net/'.$text3.'.png'
 			];
     			echo "True";
 			}
