@@ -36,19 +36,11 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
-			else if (stripos($text, "group") !== false) {
-			$text3 = $event['source']['groupId'];
+			else if (stripos($text, "#") !== false) {
+			$text3 = str_replace("#", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'GROUP ID='.$text3
-			];
-    			echo "True";
-			}
-			else if (stripos($text, "@:") !== false) {
-			$text4 = str_replace("@:", "", $text);
-			$messages = [
-				'type' => 'text',
-				'text' => 'http://siamchart.com/stock-chart/'.$text4
+				'text' => 'http://kdservices.net/'.$text3.'png'
 			];
     			echo "True";
 			}
