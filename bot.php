@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 			$text3 = str_replace("@", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'http://kdservices.net/Day'.$text3.'.png'
+				'text' => 'http://kdservices.net/Day/'.$text3.'.png'
 			];
     			echo "True";
 			}
@@ -48,7 +48,7 @@ if (!is_null($events['events'])) {
 			$text4 = str_replace("w@", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'http://kdservices.net/W'.$text4.'.png'
+				'text' => 'http://kdservices.net/W/'.$text4.'.png'
 			];
     			echo "True";
 			}
