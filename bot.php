@@ -20,8 +20,8 @@ if (!is_null($events['events'])) {
 			
 			// Build message to reply back
 			//$text = "Hello World!";
-			if (stripos($text, "@") !== false) {
-			$text1 = str_replace("@", "", $text);
+			if (stripos($text, "#") !== false) {
+			$text1 = str_replace("#", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
@@ -36,11 +36,19 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
-			else if (stripos($text, "#") !== false) {
-			$text3 = str_replace("#", "", $text);
+			else if (stripos($text, "@") !== false) {
+			$text3 = str_replace("@", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'http://kdservices.net/'.$text3.'.png'
+				'text' => 'http://kdservices.net/Day'.$text3.'.png'
+			];
+    			echo "True";
+			}
+			else if (stripos($text, "w@") !== false) {
+			$text4 = str_replace("w@", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'http://kdservices.net/W'.$text4.'.png'
 			];
     			echo "True";
 			}
