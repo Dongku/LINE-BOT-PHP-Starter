@@ -40,22 +40,23 @@ if (!is_null($events['events'])) {
 			$text3 = str_replace("@", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'http://kdservices.net/Day/'.$text3.'.png'
+				'text' => 'https://kdservices.net/Day/'.$text3.'.png'
 			];
     			echo "True";
 			}
-			else if (stripos($text, "w@") !== false) {
-			$text4 = str_replace("w@", "", $text);
+			else if (stripos($text, "w") !== false) {
+			$text4 = str_replace("w", "", $text);
 			$messages = [
-				'type' => 'text',
-				'text' => 'http://kdservices.net/W/'.$text4.'.png'
+			    'type': 'image',
+			    'originalContentUrl': 'https://kdservices.net/Day/'.$text4'.png',
+			    'previewImageUrl': 'https://kdservices.net/Day/'.$text4'.png'"
 			];
     			echo "True";
 			}
 			else {
 			$messages = [
 				'type' => 'text',
-				'text' => 'ไปหาเองไป๊..'
+				'text' => 'ไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ '
 			];
 			}
 			// Make a POST Request to Messaging API to reply to sender
