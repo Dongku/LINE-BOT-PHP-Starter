@@ -50,8 +50,9 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Day/'.$text4.'.png'
 			,
-				'type' => 'text',
-				'text' => 'https://kdservices.net/Day/'.$text4.'.jpg'
+				'type' => 'image',
+				'originalContentUrl' => 'https://kdservices.net/w/'.$text4.'.jpg',
+				'previewImageUrl' => 'https://kdservices.net/w/'.$text4.'.jpg'
 			];
     			echo "True";
 			}
