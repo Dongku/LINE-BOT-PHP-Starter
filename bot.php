@@ -46,12 +46,12 @@ if (!is_null($events['events'])) {
 			}
 			else if (stripos($text, "#") !== false) {
 			$text4 = str_replace("#", "", $text);
-			$messages = [{
+			$messages = [
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Day/'.$text4.'.png'
-			},
-			{'type' => 'text',
-				'text' => 'https://kdservices.net/Day/'.$text4.'.png'}
+			,
+				'type' => 'text',
+				'text' => 'https://kdservices.net/Day/'.$text4.'.jpg'
 			];
     			echo "True";
 			}
