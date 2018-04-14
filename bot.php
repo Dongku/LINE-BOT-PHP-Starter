@@ -46,13 +46,13 @@ if (!is_null($events['events'])) {
 			}
 			else if (stripos($text, "w") !== false) {
 			$text4 = str_replace("w", "", $text);
-			$messages = [
+			$messages = [/*
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Day/'.$text4.'.png'
-				/*
+				*/
 			    'type' => 'image',
-			    'originalContentUrl' => 'https://kdservices.net/Day/'.$text4'.png',
-			    'previewImageUrl' => 'https://kdservices.net/Day/'.$text4'.png'*/
+			    'originalContentUrl' => 'https://kdservices.net/w/'.$text4'.jpg',
+			    'previewImageUrl' => 'https://kdservices.net/w/'.$text4'.jpg'
 			];
     			echo "True";
 			}
