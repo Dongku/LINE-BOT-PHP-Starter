@@ -49,14 +49,14 @@ if (!is_null($events['events'])) {
 			$messages = [
 			    'type': 'image',
 			    'originalContentUrl': 'https://kdservices.net/Day/'.$text4'.png',
-			    'previewImageUrl': 'https://kdservices.net/Day/'.$text4'.png'"
+			    'previewImageUrl': 'https://kdservices.net/Day/'.$text4'.png'
 			];
     			echo "True";
 			}
 			else {
 			$messages = [
 				'type' => 'text',
-				'text' => 'ไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ '
+				'text' => 'ไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
 			];
 			}
 			// Make a POST Request to Messaging API to reply to sender
