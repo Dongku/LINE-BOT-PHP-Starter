@@ -36,23 +36,23 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
-			else if (stripos($text, "@") !== false) {
-			$text3 = str_replace("@", "", $text);
+			else if (stripos($text, "#") !== false) {
+			$text3 = str_replace("#", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Day/'.$text3.'.png'
 			];
     			echo "True";
 			}
-			else if (stripos($text, "#") !== false) {
-			$text4 = str_replace("#", "", $text);
+			else if (stripos($text, "@") !== false) {
+			$text4 = str_replace("@", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Day/'.$text4.'.png'
 			,
 				'type' => 'image',
-				'originalContentUrl' => 'https://kdservices.net/w/'.$text4.'.jpg',
-				'previewImageUrl' => 'https://kdservices.net/w/'.$text4.'.jpg'
+				'originalContentUrl' => 'https://kdservices.net/Day/'.$text4.'.jpg',
+				'previewImageUrl' => 'https://kdservices.net/Day/'.$text4.'.jpg'
 			];
     			echo "True";
 			}
