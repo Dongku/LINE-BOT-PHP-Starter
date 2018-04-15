@@ -59,7 +59,12 @@ if (!is_null($events['events'])) {
 			else {
 			$messages = [
 				'type' => 'text',
+				'text' => ''
+			/*
+			$messages = [
+				'type' => 'text',
 				'text' => 'ไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
+			*/
 			];
 			}
 			// Make a POST Request to Messaging API to reply to sender
