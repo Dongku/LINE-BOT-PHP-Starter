@@ -20,15 +20,16 @@ if (!is_null($events['events'])) {
 			
 			// Build message to reply back
 			//$text = "Hello World!";
-			if (stripos($text, "!") !== false) {
-			$text1 = str_replace("!", "", $text);
+			if (stripos($text, "siamchart_") !== false) {
+			$text1 = str_replace("siamchart_", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
 			];
     			echo "True";
 			}
-			else if (stripos($text, "สวัสดี") !== false) {
+			
+			else if (stripos($text, "IDREQ") !== false) {
 			$text2 = $event['source']['userId'];
 			$messages = [
 				'type' => 'text',
@@ -36,23 +37,38 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
+			
 			else if (stripos($text, "#") !== false) {
 			$text3 = str_replace("#", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'https://kdservices.net/Day/'.$text3.'.png'
-			];
-    			echo "True";
-			}
-			else if (stripos($text, "@") !== false) {
-			$text4 = str_replace("@", "", $text);
-			$messages = [
-				'type' => 'text',
-				'text' => 'https://kdservices.net/Day/'.$text4.'.png'
+				'text' => 'https://kdservices.net/Week/'.$text3.'.png'
 			,
 				'type' => 'image',
-				'originalContentUrl' => 'https://kdservices.net/Day/'.$text4.'.png',
-				'previewImageUrl' => 'https://kdservices.net/Day/'.$text4.'.png'
+				'originalContentUrl' => 'https://kdservices.net/Week/'.$text3.'.png',
+				'previewImageUrl' => 'https://kdservices.net/Week/'.$text3.'.png'
+			];
+    			echo "True";	
+			}
+			
+			else if (stripos($text, "helps") !== false) {
+			$text4 = str_replace("helps", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
+			];
+    			echo "True";	
+			}
+			
+			else if (stripos($text, "@") !== false) {
+			$text5 = str_replace("@", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'https://kdservices.net/Day/'.$text5.'.png'
+			,
+				'type' => 'image',
+				'originalContentUrl' => 'https://kdservices.net/Day/'.$text5.'.png',
+				'previewImageUrl' => 'https://kdservices.net/Day/'.$text5.'.png'
 			];
     			echo "True";
 			}
@@ -60,11 +76,6 @@ if (!is_null($events['events'])) {
 			$messages = [
 				'type' => 'text',
 				'text' => ''
-			/*
-			$messages = [
-				'type' => 'text',
-				'text' => 'ไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
-			*/
 			];
 			}
 			// Make a POST Request to Messaging API to reply to sender
