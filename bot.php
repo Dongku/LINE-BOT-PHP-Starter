@@ -72,6 +72,19 @@ if (!is_null($events['events'])) {
 			];
     			echo "True";
 			}
+			
+			else if (stripos($text, "#") !== false) {
+			$text6 = str_replace("#", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'https://kdservices.net/Test/'.$text6.'.jpg'
+			,
+				'type' => 'image',
+				'originalContentUrl' => 'https://kdservices.net/Test/'.$text3.'.jpg',
+				'previewImageUrl' => 'https://kdservices.net/Test/'.$text6.'.jpg'
+			];
+    			echo "True";	
+			}
 			else {
 			$messages = [
 				'type' => 'text',
