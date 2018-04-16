@@ -20,8 +20,8 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			//$text = "Hello World!";
 			
-			if (stripos($text, "Siamchart_") !== false) {
-			$text1 = str_replace("Siamchart_", "", $text);
+			if (stripos($text, "@") !== false) {
+			$text1 = str_replace("@", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
@@ -29,49 +29,6 @@ if (!is_null($events['events'])) {
     			echo "True";
 			}
 			
-			else if (stripos($text, "IDREQ") !== false) {
-			$text2 = $event['source']['userId'];
-			$messages = [
-				'type' => 'text',
-				'text' => 'ID='.$text2
-			];
-    			echo "True";
-			}
-			
-			else if (stripos($text, "w.") !== false) {
-			$text3 = str_replace("w.", "", $text);
-			$messages = [
-				'type' => 'text',
-				'text' => 'https://kdservices.net/Week/'.$text3.'.png'
-			,
-				'type' => 'image',
-				'originalContentUrl' => 'https://kdservices.net/Week/'.$text3.'.png',
-				'previewImageUrl' => 'https://kdservices.net/Week/'.$text3.'.png'
-			];
-    			echo "True";	
-			}
-			
-			else if (stripos($text, "helps") !== false) {
-			$text4 = str_replace("helps", "", $text);
-			$messages = [
-				'type' => 'text',
-				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
-			];
-    			echo "True";	
-			}
-			
-			else if (stripos($text, "@") !== false) {
-			$text5 = str_replace("@", "", $text);
-			$messages = [
-				'type' => 'text',
-				'text' => 'https://kdservices.net/Day/'.$text5.'.png'
-			,
-				'type' => 'image',
-				'originalContentUrl' => 'https://kdservices.net/Day/'.$text5.'.png',
-				'previewImageUrl' => 'https://kdservices.net/Day/'.$text5.'.png'
-			];
-    			echo "True";
-			}
 			else {
 			$messages = [
 				'type' => 'text',
