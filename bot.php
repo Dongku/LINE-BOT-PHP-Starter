@@ -55,7 +55,7 @@ if (!is_null($events['events'])) {
 			$text4 = str_replace("helps", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ \n TF-DAY พิมพ์ @ ตามด้วยชื่อหุ้น เช่น @SET \n TF-WEEK พิมพ์ W. ตามด้วยชื่อหุ้น เช่น W.SET',
+				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ \r\n TF-DAY พิมพ์ @ ตามด้วยชื่อหุ้น เช่น @SET \r\n TF-WEEK พิมพ์ W. ตามด้วยชื่อหุ้น เช่น W.SET',
 			];
     			echo "True";	
 			}
@@ -80,7 +80,7 @@ if (!is_null($events['events'])) {
 				'text' => 'https://kdservices.net/Test/'.$text6.'.jpg'
 			,
 				'type' => 'image',
-				'originalContentUrl' => 'https://kdservices.net/Test/'.$text3.'.jpg',
+				'originalContentUrl' => 'https://kdservices.net/Test/'.$text6.'.jpg',
 				'previewImageUrl' => 'https://kdservices.net/Test/'.$text6.'.jpg'
 			];
     			echo "True";	
