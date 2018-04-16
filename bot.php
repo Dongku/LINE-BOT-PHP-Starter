@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			//$text = "Hello World!";
 			if (stripos($text, "Siamchart_") !== false) {
-			$text1 = str_replace(["Siamchart_", "siamchart_"], "", $text);
+			$text1 = str_replace("Siamchart_", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
 			}
 			
 			else if (stripos($text, "w.") !== false) {
-			$text3 = str_replace(["w.", "W."], "", $text);
+			$text3 = str_replace("w.", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Week/'.$text3.'.png'
@@ -55,7 +55,6 @@ if (!is_null($events['events'])) {
 			$text4 = str_replace("helps", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ',
 				'text' => 'TF-DAY พิมพ์ @ ตามด้วยชื่อหุ้น เช่น @SET    TF-WEEK พิมพ์ W. ตามด้วยชื่อหุ้น เช่น W.SET'
 			];
     			echo "True";	
