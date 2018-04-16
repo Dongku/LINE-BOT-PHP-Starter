@@ -40,6 +40,7 @@ if (!is_null($events['events'])) {
 			
 			else if (stripos($text, "w.") !== false) {
 			$text3 = str_replace("w.", "", $text);
+			$text3 = str_replace("W.", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Week/'.$text3.'.png'
@@ -55,7 +56,8 @@ if (!is_null($events['events'])) {
 			$text4 = str_replace("helps", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
+				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ',
+				'text' => 'TF-DAY พิมพ์ @ ตามด้วยชื่อหุ้น เช่น @SET \n TF-WEEK พิมพ์ W. ตามด้วยชื่อหุ้น เช่น @SET'
 			];
     			echo "True";	
 			}
