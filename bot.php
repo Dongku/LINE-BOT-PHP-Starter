@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			//$text = "Hello World!";
 			if (stripos($text, "Siamchart_") !== false) {
-			$text1 = str_replace("Siamchart_", "", $text);
+			$text1 = str_replace(["Siamchart_", "siamchart_"], "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
