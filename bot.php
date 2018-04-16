@@ -38,8 +38,8 @@ if (!is_null($events['events'])) {
     			echo "True";
 			}
 			
-			else if (stripos($text, "W@") !== false) {
-			$text3 = str_replace("W@", "", $text);
+			else if (stripos($text, "w.") !== false) {
+			$text3 = str_replace("w.", "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Week/'.$text3.'.png'
