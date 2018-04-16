@@ -55,7 +55,7 @@ if (!is_null($events['events'])) {
 			$text4 = str_replace("helps", "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'TF-DAY พิมพ์ @ ตามด้วยชื่อหุ้น เช่น @SET    TF-WEEK พิมพ์ W. ตามด้วยชื่อหุ้น เช่น W.SET'
+				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
 			];
     			echo "True";	
 			}
