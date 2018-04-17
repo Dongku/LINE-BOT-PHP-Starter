@@ -1,6 +1,4 @@
 <?php
-$proxy = 'http://fixie:dktIJfZt6pqxvZ1@velodrome.usefixie.com:80';
-$proxyauth = 'dong_t49@hotmail.com:Kikko664629';
 $access_token = '54jzf1HioeAmIulGvoLpzCst+vTdDuAtj+F+2kLvi+Avd8QJDeMBPcSa5CVIlNE5/XOjIUyIYNCpj1DaAHuyi7hrIJARpT3jbHTYiBvPuvrZobTUGBOblvBIP78tbxwde7uUrOlbF5/GCQlxx+K18AdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
