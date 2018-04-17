@@ -1,76 +1,103 @@
 <?php
-
-$strAccessToken = "54jzf1HioeAmIulGvoLpzCst+vTdDuAtj+F+2kLvi+Avd8QJDeMBPcSa5CVIlNE5/XOjIUyIYNCpj1DaAHuyi7hrIJARpT3jbHTYiBvPuvrZobTUGBOblvBIP78tbxwde7uUrOlbF5/GCQlxx+K18AdB04t89/1O/w1cDnyilFU=";
-
+$proxy = 'http://fixie:dktIJfZt6pqxvZ1@velodrome.usefixie.com:80';
+$proxyauth = 'dong_t49@hotmail.com:Kikko664629';
+$access_token = '54jzf1HioeAmIulGvoLpzCst+vTdDuAtj+F+2kLvi+Avd8QJDeMBPcSa5CVIlNE5/XOjIUyIYNCpj1DaAHuyi7hrIJARpT3jbHTYiBvPuvrZobTUGBOblvBIP78tbxwde7uUrOlbF5/GCQlxx+K18AdB04t89/1O/w1cDnyilFU=';
+// Get POST body content
 $content = file_get_contents('php://input');
-$arrJson = json_decode($content, true);
-
-$strUrl = "https://api.line.me/v2/bot/message/reply";
-
-$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-$_msg = $arrJson['events'][0]['message']['text'];
-
-
-$api_key="<MLAB APIKEY>";
-$url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'';
-$json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$_msg.'"}');
-$data = json_decode($json);
-$isData=sizeof($data);
-
-if (strpos($_msg, 'สอนเป็ด') !== false) {
-  if (strpos($_msg, 'สอนเป็ด') !== false) {
-    $x_tra = str_replace("สอนเป็ด","", $_msg);
-    $pieces = explode("|", $x_tra);
-    $_question=str_replace("[","",$pieces[0]);
-    $_answer=str_replace("]","",$pieces[1]);
-    //Post New Data
-    $newData = json_encode(
-      array(
-        'question' => $_question,
-        'answer'=> $_answer
-      )
-    );
-    $opts = array(
-      'http' => array(
-          'method' => "POST",
-          'header' => "Content-type: application/json",
-          'content' => $newData
-       )
-    );
-    $context = stream_context_create($opts);
-    $returnValue = file_get_contents($url,false,$context);
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'ขอบคุณที่สอนเป็ด';
-  }
-}else{
-  if($isData >0){
-   foreach($data as $rec){
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = $rec->answer;
-   }
-  }else{
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = 'ก๊าบบ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนเป็ด[คำถาม|คำตอบ]';
-  }
+// Parse JSON
+$events = json_decode($content, true);
+// Validate parsed JSON data
+if (!is_null($events['events'])) {
+	// Loop through each event
+	foreach ($events['events'] as $event) {
+		// Reply only when message sent is in 'text' format
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+			// Get text sent
+			$text = $event['message']['text'];
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+			
+			// Build message to reply back
+			//$text = "Hello World!";
+			
+			if (stripos($text, "Siamchart_") !== false) {
+			$text1 = str_replace("Siamchart_", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'http://siamchart.com/stock-chart/'.$text1
+			];
+    			echo "True";
+			}
+			
+			else if (stripos($text, "IDREQ") !== false) {
+			$text2 = $event['source']['userId'];
+			$messages = [
+				'type' => 'text',
+				'text' => 'ID='.$text2
+			];
+    			echo "True";
+			}
+			
+			else if (stripos($text, "w.") !== false) {
+			$text3 = str_replace("w.", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'https://kdservices.net/Week/'.$text3.'.png'
+			,
+				'type' => 'image',
+				'originalContentUrl' => 'https://kdservices.net/Week/'.$text3.'.png',
+				'previewImageUrl' => 'https://kdservices.net/Week/'.$text3.'.png'
+			];
+    			echo "True";	
+			}
+			
+			else if (stripos($text, "helps") !== false) {
+			$text4 = str_replace("helps", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
+			];
+    			echo "True";	
+			}
+			
+			else if (stripos($text, "@") !== false) {
+			$text5 = str_replace("@", "", $text);
+			$messages = [
+				'type' => 'text',
+				'text' => 'https://kdservices.net/Day/'.$text5.'.png'
+			,
+				'type' => 'image',
+				'originalContentUrl' => 'https://kdservices.net/Day/'.$text5.'.png',
+				'previewImageUrl' => 'https://kdservices.net/Day/'.$text5.'.png'
+			];
+    			echo "True";
+			}
+			else {
+			$messages = [
+				'type' => 'text',
+				'text' => 'Test Test'
+			];
+			}			
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($ch, CURLOPT_PROXY, $proxy);
+			curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
+			$result = curl_exec($ch);
+			curl_close($ch);
+			echo $result . "\r\n";
+		}
+	}
 }
-
-
-$channel = curl_init();
-curl_setopt($channel, CURLOPT_URL,$strUrl);
-curl_setopt($channel, CURLOPT_HEADER, false);
-curl_setopt($channel, CURLOPT_POST, true);
-curl_setopt($channel, CURLOPT_HTTPHEADER, $arrHeader);
-curl_setopt($channel, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-curl_setopt($channel, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($channel, CURLOPT_SSL_VERIFYPEER, false);
-$result = curl_exec($channel);
-curl_close ($channel);
-?>
+echo "OK";
