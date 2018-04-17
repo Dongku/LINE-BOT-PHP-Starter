@@ -1,6 +1,6 @@
 <?php
 $proxy = 'http://fixie:dktIJfZt6pqxvZ1@velodrome.usefixie.com:80';
-$proxyauth = 'dong_t49@hotmail.com:Kikko664629';
+$proxyauth = 'dong_t49@hotmail.com:Surface@6646';
 $access_token = 'g4wgtByEcy99M5Zx8bw4fIJJtqi0b/Nwq1mcI4HPXVK2SrFrrMfz/J4gF44eOeNozHuCPQjkuDB8dfk58vFh9bRlk252NZmcNh5n6VPVnT5o8HXIFb9e2H++oIm3t+Bn90HESDRCM4smmZhrd7pppwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
 			//$text = "Hello World!";
 			
 			if (stripos($text, "Siamchart_") !== false) {
-			$text1 = str_replace("Siamchart_", "", $text);
+			$text1 = str_replace(["Siamchart_","siamchart_"], "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'http://siamchart.com/stock-chart/'.$text1
@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 			}
 			
 			else if (stripos($text, "w.") !== false) {
-			$text3 = str_replace("w.", "", $text);
+			$text3 = str_replace(["w.","W."], "", $text);
 			$messages = [
 				'type' => 'text',
 				'text' => 'https://kdservices.net/Week/'.$text3.'.png'
@@ -53,10 +53,12 @@ if (!is_null($events['events'])) {
 			}
 			
 			else if (stripos($text, "helps") !== false) {
-			$text4 = str_replace("helps", "", $text);
+			$text4 = str_replace(["helps","Helps"], "", $text);
 			$messages = [
 				'type' => 'text',
-				'text' => 'หากไม่พบหุ้นที่ต้องการ.. ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ'
+				'text' => 'ลองพิม @ ตามด้วยชื่อหุ้น เช่น @SET ดูนะครับ',
+				'type' => 'text',
+				'text' => 'Tips! TF-Day พิม @ ตามด้วยชื่อหุ้น เช่น @SET TF-Week พิม W. ตามด้วยชื่อหุ้น เช่น W.SET'
 			];
     			echo "True";	
 			}
@@ -77,7 +79,7 @@ if (!is_null($events['events'])) {
 			else {
 			$messages = [
 				'type' => 'text',
-				'text' => 'Test Test'
+				'text' => ''
 			];
 			}			
 			// Make a POST Request to Messaging API to reply to sender
@@ -104,4 +106,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+echo "Bot-OK";
